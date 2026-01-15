@@ -1,0 +1,550 @@
+.page {
+  padding: 32px;
+  background: #f5f7fa;
+  min-height: 100vh;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+
+.btn {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: #1e88e5;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #1565c0;
+}
+
+.btn-secondary {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.btn-success {
+  background: #43a047;
+  color: #fff;
+}
+
+.btn-danger {
+  background: #e53935;
+  color: #fff;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.filter-bar select,
+.filter-bar input[type="date"] {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+/* ---------- COLUMN WIDTH CONTROL ---------- */
+
+/* Row number */
+.table th:nth-child(1),
+.table td:nth-child(1) {
+  width: 40px;
+  text-align: center;
+}
+
+/* Name */
+.table th:nth-child(2),
+.table td:nth-child(2) {
+  width: 160px;
+}
+
+/* Phone */
+.table th:nth-child(3),
+.table td:nth-child(3) {
+  width: 140px;
+  white-space: nowrap;
+}
+
+/* Address */
+.table th:nth-child(4),
+.table td:nth-child(4) {
+  width: 320px;
+  max-width: 320px;
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* Enrolment Date */
+.table th:nth-child(5),
+.table td:nth-child(5) {
+  width: 130px;
+  white-space: nowrap;
+}
+
+/* Core Devotee (admin only) */
+.table th:nth-child(6),
+.table td:nth-child(6) {
+  width: 160px;
+  white-space: nowrap;
+}
+
+
+
+
+.table th {
+  background: #1e88e5;
+  color: white;
+  font-size: 13px;
+  padding: 10px;
+  text-align: left;
+}
+
+/* ---------- TABLE TEXT VISIBILITY FIX ---------- */
+
+.table td {
+  color: #263238;            /* dark readable text */
+  font-weight: 400;
+  vertical-align: top;
+}
+
+/* Ensure links / inherited text don’t fade */
+.table td *,
+.table td a {
+  color: inherit;
+}
+
+/* ---------- LONG TEXT HANDLING (Address column) ---------- */
+
+.table td {
+  max-width: 300px;          /* prevents runaway width */
+  white-space: normal;       /* allow wrapping */
+  word-break: break-word;    /* break long strings */
+}
+
+/* Optional: tighter rows for readability */
+.table td {
+  line-height: 1.4;
+}
+
+/* ---------- ROW NUMBER COLUMN ---------- */
+.table th:first-child,
+.table td:first-child {
+  width: 40px;
+  text-align: center;
+  color: #546e7a;
+  font-weight: 500;
+}
+
+
+.table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.table tr:hover {
+  background: #eef4ff;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.admin-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: #e3f2fd;
+  color: #1e88e5;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 12px;
+}
+
+.page h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1f2937; /* dark slate */
+  margin-bottom: 12px;
+}
+
+.page h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 10px;
+}
+
+.page p {
+  color: #374151; /* readable gray */
+  font-size: 14px;
+}
+
+.admin-info {
+  background: #e3f2fd;
+  border: 1px solid #1e88e5;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.admin-info strong {
+  color: #0d47a1;
+}
+
+.admin-info p {
+  color: #1f2937;
+}
+
+.filter-bar .btn {
+  min-width: 160px;
+}
+
+.filter-bar select {
+  background: #ffffff;
+  color: #1f2937;
+  border: 1px solid #cbd5e1;
+}
+
+.filter-bar select:focus {
+  outline: none;
+  border-color: #1e88e5;
+  box-shadow: 0 0 0 2px rgba(30,136,229,0.15);
+}
+
+.card {
+  overflow-x: auto;
+}
+
+/* ---------- FORCE STABLE TABLE LAYOUT ---------- */
+.table {
+  table-layout: fixed;   /* 🔑 THIS IS THE KEY */
+  width: 100%;
+}
+
+/* ======================================================
+   HARD CONTRAST FIX — TABLE TEXT
+   ====================================================== */
+
+/* Force readable text everywhere inside tables */
+.table th,
+.table td {
+  color: #111827 !important;   /* near-black, Tailwind gray-900 */
+  opacity: 1 !important;
+}
+
+/* Header text stays white */
+.table th {
+  color: #ffffff !important;
+}
+
+/* Ensure zebra rows do NOT fade text */
+.table tr:nth-child(even) td {
+  color: #111827 !important;
+  opacity: 1 !important;
+}
+
+/* Fix pagination text visibility */
+.pagination,
+.pagination span,
+.pagination label {
+  color: #111827;
+}
+
+/* Fix "Rows per page" select text */
+.pagination select {
+  color: #111827;
+  background: #ffffff;
+}
+
+/* ======================================================
+   TEXT VISIBILITY FIX — HEADINGS & LABELS
+   ====================================================== */
+
+/* Section titles like "All Contacts" */
+.page h4 {
+  color: #111827;        /* dark slate */
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Labels (Filter by Core Devotee, Rows per page, etc.) */
+label {
+  color: #111827;
+  font-weight: 500;
+}
+
+/* Labels specifically inside filter bars */
+.filter-bar label {
+  color: #111827;
+  font-weight: 500;
+}
+
+/* Ensure selects don't inherit faded text */
+.filter-bar select {
+  color: #111827;
+}
+
+/* Safety: prevent any accidental opacity inheritance */
+.card,
+.card * {
+  opacity: 1;
+}
+
+/* ======================================================
+   HEADER STYLES
+   ====================================================== */
+
+.app-header {
+  padding: 10px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.header-welcome {
+  color: #111827;
+  font-size: 14px;
+}
+
+.header-welcome strong {
+  font-weight: 600;
+}
+
+/* ---------- FORM INPUT RESET & ALIGNMENT ---------- */
+
+.filter-bar input,
+.card input,
+.card select {
+  height: 38px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+  color: #1f2937;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  min-width: 220px;
+}
+
+/* Fix dark / filled inputs (number, date, text) */
+.card input[type="number"],
+.card input[type="text"],
+.card input[type="date"] {
+  background-color: #ffffff;
+  color: #1f2937;
+}
+
+/* Remove browser dark styles */
+.card input:focus,
+.card select:focus {
+  outline: none;
+  border-color: #1e88e5;
+  box-shadow: 0 0 0 2px rgba(30, 136, 229, 0.15);
+}
+
+/* Checkbox alignment */
+.card input[type="checkbox"] {
+  width: auto;
+  height: auto;
+  margin-right: 6px;
+  accent-color: #1e88e5;
+}
+
+/* Labels spacing */
+.card label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* Ensure inputs align nicely in rows */
+.filter-bar > label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ---------- CHECKBOX FIX (Transferred) ---------- */
+
+.card label:has(input[type="checkbox"]) {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card input[type="checkbox"] {
+  margin: 0;
+  transform: translateY(1px); /* visual alignment */
+}
+
+/* ---------- CHECKBOX ROW (FIX) ---------- */
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.checkbox-row input[type="checkbox"] {
+  width: auto !important;
+  height: auto;
+  margin: 0;
+  accent-color: #1e88e5;
+}
+
+.checkbox-row label {
+  margin: 0;
+  font-size: 14px;
+  color: #1f2937;
+  cursor: pointer;
+}
+
+/* ===============================
+   FORCE-FIX CHECKBOX STYLING
+   =============================== */
+
+/* Kill text-input styles leaking into checkbox */
+input[type="checkbox"] {
+  width: auto !important;
+  min-width: unset !important;
+  max-width: unset !important;
+
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+
+  display: inline-block !important;
+}
+
+/* Checkbox row layout */
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+/* Label styling */
+.checkbox-row label {
+  font-size: 14px;
+  color: #1f2937;
+  cursor: pointer;
+}
+
+/* Optional: modern checkbox color */
+.checkbox-row input[type="checkbox"] {
+  accent-color: #1e88e5;
+}
+
+.card input:not([type="checkbox"]) {
+  width: 100%;
+}
+
+/* ---------- FIX DATE INPUT CALENDAR ICON ---------- */
+
+/* Restore native appearance */
+input[type="date"] {
+  appearance: auto;
+  -webkit-appearance: auto;
+  -moz-appearance: auto;
+}
+
+/* Ensure calendar icon is visible (Chrome / Edge / Safari) */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 1;
+  cursor: pointer;
+  filter: invert(0); /* keeps icon dark */
+}
+
+/* Prevent date text from overlapping icon */
+input[type="date"] {
+  padding-right: 12px;
+}
+
+/* ===============================
+   FORCE DATE PICKER ICON BACK
+   =============================== */
+
+/* Reset everything ONLY for date inputs */
+input[type="date"] {
+  appearance: auto !important;
+  -webkit-appearance: auto !important;
+  -moz-appearance: auto !important;
+
+  background-color: #fff;
+  color: #1f2937;
+
+  padding-right: 40px; /* space for icon */
+}
+
+/* Force calendar icon visibility (Chrome / Edge / Safari) */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  cursor: pointer;
+  filter: invert(0); /* dark icon */
+}
+
+/* Undo any global input reset */
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-clear-button {
+  display: none;
+}
+
+/* ---------- DATE INPUT CALENDAR ICON FIX ---------- */
+
+/* Chrome, Edge, Safari */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.6) sepia(1) saturate(5) hue-rotate(180deg);
+  cursor: pointer;
+}
