@@ -20,6 +20,8 @@ export default function Contacts({ profile }) {
   /* ---------- ADDITIVE: PAGINATION STATE ---------- */
   const [currentPage, setCurrentPage] = useState(1)
   const [rowsPerPage, setRowsPerPage] = useState(10)
+  const [enrolmentDate, setEnrolmentDate] = useState('')
+
 
   /* -------------------- INIT -------------------- */
 
@@ -88,7 +90,7 @@ export default function Contacts({ profile }) {
       contact_name: name,
       contact_number: phone,
       address,
-      enrolment_date: new Date().toISOString().split('T')[0]
+      enrolment_date: enrolmentDate || new Date().toISOString().split('T')[0]
     })
 
     if (error) {
@@ -99,6 +101,7 @@ export default function Contacts({ profile }) {
     setName('')
     setPhone('')
     setAddress('')
+    setEnrolmentDate('')
     fetchContacts()
   }
 
@@ -303,6 +306,14 @@ return (
           onChange={e => setAddress(e.target.value)}
         />
         <br /><br />
+
+        <input
+  type="date"
+  value={enrolmentDate}
+  onChange={e => setEnrolmentDate(e.target.value)}
+/>
+<br /><br />
+
 
         <button className="btn btn-success" onClick={addContact}>
           Add Contact
