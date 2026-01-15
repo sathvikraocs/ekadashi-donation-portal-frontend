@@ -16,7 +16,7 @@ export default function Login() {
     if (error) {
       alert(error.message)
     } else {
-      router.push('/')
+      window.location.href = '/'
     }
   }
 
